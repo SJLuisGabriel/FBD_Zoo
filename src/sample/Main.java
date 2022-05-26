@@ -1,17 +1,12 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import sample.models.Conexion;
+import sample.tablas.EspecieBD;
 
 public class Main extends Application{
 
@@ -24,7 +19,6 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) {
 
-        //primaryStage.addEventHandler(WindowEvent.WINDOW_SHOWING,this);
         CrearUI();
         primaryStage.setScene(escena);
         primaryStage.setTitle("Bases De Datos");
@@ -50,6 +44,9 @@ public class Main extends Application{
         btnUbicacion = new Button("UBICACION DEL ANIMAL");
         btnVeterinario = new Button("VETERINARIO");
 
+        btnEspecie.setOnAction(event -> new EspecieBD());
+
+        Conexion.crearConexion();
         vBox.getChildren().addAll(btnGuias, btnTipoRecorridos, btnRecorridos, btnClima,
                 btnHabitat, btnUbicacion, btnAnimales, bntAseo, btnEspecie, btnCuidadores,
                 btnCuidados, btnAlimentacion, btnVeterinario, btnMedicina, btnProveedor);
