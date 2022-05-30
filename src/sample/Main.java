@@ -6,15 +6,17 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import sample.models.Conexion;
+import sample.tablas.CuidadoresBD;
 import sample.tablas.EspecieBD;
+import sample.tablas.GuiasBD;
+import sample.tablas.VeterinarioBD;
 
 public class Main extends Application{
 
     private Scene escena;
     private VBox vBox;
-    private Button btnAlimentacion, btnAnimales, bntAseo, btnClima, btnCuidadores, btnCuidados,
-            btnEspecie, btnGuias, btnHabitat, btnMedicina, btnProveedor, btnRecorridos,
-            btnTipoRecorridos, btnUbicacion, btnVeterinario;
+    private Button btnAlimentacion, btnAnimales, btnClima, btnCuidadores, btnCuidados,btnEspecie,
+            btnGuias, btnHabitat, btnRecorridos, btnTipoRecorridos, btnUbicacion, btnVeterinario;
 
     @Override
     public void start(Stage primaryStage) {
@@ -29,7 +31,6 @@ public class Main extends Application{
 
         vBox = new VBox();
         btnAlimentacion = new Button("ALIMENTACIÓN");
-        bntAseo = new Button("ASEO");
         btnCuidadores = new Button("CUIDADORES");
         btnAnimales = new Button("ANIMAES");
         btnClima = new Button("CLIMA");
@@ -37,19 +38,20 @@ public class Main extends Application{
         btnEspecie = new Button("ESPECIE");
         btnGuias = new Button("GUIAS");
         btnHabitat = new Button("HABITAT");
-        btnMedicina = new Button("MEDICINA");
-        btnProveedor = new Button("PROVEEDOR");
         btnRecorridos = new Button("RECORRIDOS");
         btnTipoRecorridos = new Button("TIPOS DE RECORRIDOS");
         btnUbicacion = new Button("UBICACION DEL ANIMAL");
         btnVeterinario = new Button("VETERINARIO");
 
         btnEspecie.setOnAction(event -> new EspecieBD());
+        btnGuias.setOnAction(event -> new GuiasBD());
+        btnCuidadores.setOnAction(event -> new CuidadoresBD());
+        btnVeterinario.setOnAction(event -> new VeterinarioBD());
 
         Conexion.crearConexion();
         vBox.getChildren().addAll(btnGuias, btnTipoRecorridos, btnRecorridos, btnClima,
-                btnHabitat, btnUbicacion, btnAnimales, bntAseo, btnEspecie, btnCuidadores,
-                btnCuidados, btnAlimentacion, btnVeterinario, btnMedicina, btnProveedor);
+                btnHabitat, btnUbicacion, btnAnimales, btnEspecie, btnCuidadores,
+                btnCuidados, btnAlimentacion, btnVeterinario);
         escena = new Scene(vBox, 420, 150);
     }
 
