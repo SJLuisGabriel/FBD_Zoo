@@ -73,7 +73,7 @@ public class VeterinarioDAO {
 
             while( res.next() ){
                 objVeterinario = new VeterinarioDAO();
-                objVeterinario.setCveVeterinario(res.getInt("CveCuidadores"));
+                objVeterinario.setCveVeterinario(res.getInt("CveVeterinario"));
                 objVeterinario.setNombre(res.getString("nombre"));
                 objVeterinario.setDireccion(res.getString("direccion"));
                 objVeterinario.setTelefono(res.getString("Telefono"));

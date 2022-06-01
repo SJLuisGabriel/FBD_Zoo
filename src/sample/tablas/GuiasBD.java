@@ -13,6 +13,8 @@ import javafx.util.Callback;
 import sample.compontes.CCGuia;
 import sample.models.GuiaDAO;
 
+import java.io.File;
+
 public class GuiasBD extends Stage {
 
     private Scene escena;
@@ -38,12 +40,15 @@ public class GuiasBD extends Stage {
             new GuiaForms(tbvGuia, null);
         });
 
+        btnAgregar.setId("btnGuardar");
         vBox = new VBox();
         vBox.setSpacing(10.0);
         vBox.setPadding(new Insets(10.0));
         vBox.getChildren().addAll(tbvGuia,btnAgregar);
-        escena = new Scene(vBox,408,300);
+        escena = new Scene(vBox,590,300);
         CrearTabla();
+        File Filecss = new File("src/sample/style/style2.css");
+        escena.getStylesheets().add(Filecss.toURI().toString());
     }
 
     private void CrearTabla() {
@@ -78,6 +83,8 @@ public class GuiasBD extends Stage {
 
         tbvGuia.getColumns().addAll(tbcCveGuia,tbcNombre,tbcDireccion,tbcTelefono,tbcEditar,tbcBorrar);
         tbvGuia.setItems(guiaDAO.SELECCIONAR_GUIA());
-
+        tbcNombre.setId("tbcBD");tbcCveGuia.setId("tbcBD");tbcTelefono.setId("tbcBD");
+        tbcDireccion.setId("tbcBD");tbcEditar.setId("tbcBD");tbcBorrar.setId("tbcBD");
+        tbcCveGuia.setMinWidth(65);tbcNombre.setMinWidth(90);tbcDireccion.setMinWidth(120);
     }
 }

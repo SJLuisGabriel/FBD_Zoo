@@ -1,0 +1,52 @@
+.root{
+    -fx-background-color: #FDEBD0;
+}
+
+#lblForms{
+    -fx-font-family: "Times New Roman";
+    -fx-font-style: italic;
+    -fx-font-size: 15px;
+}
+
+#btnGuardar{
+    -fx-font-family: "Times New Roman";
+    -fx-font-style: italic;
+    -fx-font-size: 15px;
+    -fx-background-insets: 90;
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-border-radius: 5 5 5 5;
+}
+
+#tbcBD{
+    -fx-font-family: "Times New Roman";
+    -fx-font-style: italic;
+    -fx-font-size: 15px;
+    -fx-background-color: #A3E4D7;
+    -fx-border-color: white;
+    -fx-border-width: 1;
+    -fx-border-radius: 5 5 5 5;
+}
+#btnMenu{
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-effect: dropshadow(gaussian, #FAD7A0, 15, 0, 0, 0);
+    -fx-background-insets: 90;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 5 5 5 5;
+}
+#lblMenus {
+ -fx-font-family: "Times New Roman";
+ -fx-font-style: italic;
+ -fx-font-size: 17px;
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+
+.table-row-cell: hover {
+    -fx-background-color: #AED6F1;
+    -fx-text-background-color: #E74C3C;
+}

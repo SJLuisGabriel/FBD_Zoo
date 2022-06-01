@@ -13,6 +13,8 @@ import javafx.util.Callback;
 import sample.compontes.CCVeterinario;
 import sample.models.VeterinarioDAO;
 
+import java.io.File;
+
 public class VeterinarioBD extends Stage {
 
     private Scene escena;
@@ -38,12 +40,15 @@ public class VeterinarioBD extends Stage {
             new VeterinarioForms(tbvVeterinario, null);
         });
 
+        btnAgregar.setId("btnGuardar");
         vBox = new VBox();
         vBox.setSpacing(10.0);
         vBox.setPadding(new Insets(10.0));
         vBox.getChildren().addAll(tbvVeterinario,btnAgregar);
-        escena = new Scene(vBox,408,300);
+        escena = new Scene(vBox,590,300);
         CrearTabla();
+        File Filecss = new File("src/sample/style/style2.css");
+        escena.getStylesheets().add(Filecss.toURI().toString());
     }
 
     private void CrearTabla() {
@@ -78,6 +83,8 @@ public class VeterinarioBD extends Stage {
 
         tbvVeterinario.getColumns().addAll(tbcCveVeterinario,tbcNombre,tbcDireccion,tbcTelefono,tbcEditar,tbcBorrar);
         tbvVeterinario.setItems(vetDAO.SELECCIONAR_VETERINARIO());
-
+        tbcNombre.setId("tbcBD");tbcCveVeterinario.setId("tbcBD");tbcTelefono.setId("tbcBD");
+        tbcDireccion.setId("tbcBD");tbcEditar.setId("tbcBD");tbcBorrar.setId("tbcBD");
+        tbcCveVeterinario.setMinWidth(65);tbcNombre.setMinWidth(90);tbcDireccion.setMinWidth(120);
     }
 }

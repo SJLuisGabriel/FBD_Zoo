@@ -14,15 +14,15 @@ import java.util.Optional;
 public class CCCuidadores extends TableCell<CuidadoresDAO, String> {
     private Button btnCelda;
     private  int opc;
-    private CuidadoresDAO ObjCuidDAO;
+    private CuidadoresDAO ObjDAO;
 
     public CCCuidadores(int opc){
         this.opc = opc;
         if( opc == 1) {
             btnCelda = new Button("EDITAR");
             btnCelda.setOnAction(event -> {
-                ObjCuidDAO = CCCuidadores.this.getTableView().getItems().get(CCCuidadores.this.getIndex());
-                new CuidadoresForms(CCCuidadores.this.getTableView(), ObjCuidDAO);
+                ObjDAO = CCCuidadores.this.getTableView().getItems().get(CCCuidadores.this.getIndex());
+                new CuidadoresForms(CCCuidadores.this.getTableView(), ObjDAO);
             });
         }else{
             btnCelda = new Button("BORRAR");
@@ -34,9 +34,9 @@ public class CCCuidadores extends TableCell<CuidadoresDAO, String> {
                 Optional<ButtonType> result = alerta.showAndWait();
 
                 if(result.get() == ButtonType.OK ){
-                    ObjCuidDAO = CCCuidadores.this.getTableView().getItems().get(CCCuidadores.this.getIndex());
-                    ObjCuidDAO.ELIMINAR_CUIDADORES();
-                    CCCuidadores.this.getTableView().setItems(ObjCuidDAO.SELECCIONAR_CUIDADORES());
+                    ObjDAO = CCCuidadores.this.getTableView().getItems().get(CCCuidadores.this.getIndex());
+                    ObjDAO.ELIMINAR_CUIDADORES();
+                    CCCuidadores.this.getTableView().setItems(ObjDAO.SELECCIONAR_CUIDADORES());
                     CCCuidadores.this.getTableView().refresh();
                 }
             });

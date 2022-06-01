@@ -13,6 +13,8 @@ import javafx.util.Callback;
 import sample.compontes.CCEspecie;
 import sample.models.EspecieDAO;
 
+import java.io.File;
+
 public class EspecieBD extends Stage {
 
     private Scene escena;
@@ -44,6 +46,9 @@ public class EspecieBD extends Stage {
         vBox.getChildren().addAll(tbvEspecie,btnAgregar);
         escena = new Scene(vBox,408,300);
         CrearTabla();
+        btnAgregar.setId("btnGuardar");
+        File Filecss = new File("src/sample/style/style2.css");
+        escena.getStylesheets().add(Filecss.toURI().toString());
     }
 
     private void CrearTabla() {
@@ -72,6 +77,8 @@ public class EspecieBD extends Stage {
 
         tbvEspecie.getColumns().addAll(tbcCveEspecie,tbcClasificacion,tbcEditar,tbcBorrar);
         tbvEspecie.setItems(espDAO.SELECCIONAR_ESPECIE());
-
+        tbcCveEspecie.setId("tbcBD");tbcClasificacion.setId("tbcBD");
+        tbcEditar.setId("tbcBD");tbcBorrar.setId("tbcBD");
+        tbcCveEspecie.setMinWidth(65);tbcClasificacion.setMinWidth(125);
     }
 }
